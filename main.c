@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:28:56 by spark             #+#    #+#             */
-/*   Updated: 2021/05/17 01:18:20 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/17 01:29:17 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,8 @@ int main(int ac, char *av[])
     // go_pb(basket_a, basket_a);
     
     // print_list(basket_a);
+    free_memory(basket_a);
+    free_memory(basket_b);
     return (0);
 }
 

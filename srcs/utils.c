@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:59:28 by spark             #+#    #+#             */
-/*   Updated: 2021/05/17 00:25:12 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/17 01:26:12 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,3 +66,22 @@ int		matrix_line_num(char **matrix)
 	return (i);
 }
 
+void	free_memory(t_nd *nd)
+{
+	t_nd	*tmp1;
+	t_nd	*tmp2;
+
+	tmp1 = nd;
+	tmp2 = 0;
+	while (tmp1)
+	{
+		if (tmp1->prev)
+			tmp2 = tmp1->prev;
+		free(tmp1);
+		if (tmp2)
+			tmp1 = tmp2;
+		else
+			break ;
+		tmp2 = 0;
+	}
+}

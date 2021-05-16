@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:36:56 by spark             #+#    #+#             */
-/*   Updated: 2021/05/17 01:19:26 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/17 01:26:50 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void    link_nd_int(t_nd **nd, long val, t_nd *head);
 t_nd	*new_nd_int(long val);
 t_nd	*new_nd(char *val);
 void    link_nd(t_nd **nd, char *val, t_nd *head);
+void	free_memory(t_nd *nd);
 
 
 void    go_sa(t_nd *a, t_nd *b);
