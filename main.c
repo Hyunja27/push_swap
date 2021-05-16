@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:28:56 by spark             #+#    #+#             */
-/*   Updated: 2021/05/16 23:03:45 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/17 01:18:20 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,11 +41,19 @@ int main(int ac, char *av[])
 
     
     print_list(basket_a);
-
-    go_ra(&basket_a, &basket_b);
-    printf("\n\n=========\n\n");
+    // printf("\n=========\n");
+    // print_list(basket_b);
+    
+    go_rra(&basket_a, &basket_b);
+    go_rra(&basket_a, &basket_b);
+    go_rra(&basket_a, &basket_b);
+    go_rra(&basket_a, &basket_b);
+    go_rra(&basket_a, &basket_b);
+    printf("\n\n\n\n=======================\n\n\n\n");
     
     print_list(basket_a);
+    // printf("\n=========\n");
+    // print_list(basket_b);
 
 
     // go_pb(&basket_a, &basket_b);

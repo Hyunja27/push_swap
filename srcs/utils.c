@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:59:28 by spark             #+#    #+#             */
-/*   Updated: 2021/05/16 22:46:28 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/17 00:25:12 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,9 +34,9 @@ void	print_list(t_nd *com)
 	tmp_nd2 = com;
 	print_args(tmp_nd->val);
 	printf("\n");
-	if (tmp_nd2->next)
+	if (tmp_nd2->prev)
 	{
-		tmp_nd2 = tmp_nd2->next;
+		tmp_nd2 = tmp_nd2->prev;
 		tmp_nd = tmp_nd2;
 		printf("->");
 		print_list(tmp_nd2);

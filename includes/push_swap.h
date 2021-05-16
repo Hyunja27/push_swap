@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:36:56 by spark             #+#    #+#             */
-/*   Updated: 2021/05/16 23:01:53 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/17 01:19:26 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,10 +38,15 @@ void    link_nd(t_nd **nd, char *val, t_nd *head);
 
 
 void    go_sa(t_nd *a, t_nd *b);
-void    go_ba(t_nd *a, t_nd *b);
+void    go_sb(t_nd *a, t_nd *b);
 void    go_ss(t_nd *a, t_nd *b);
 void    go_pa(t_nd **a, t_nd **b);
 void    go_pb(t_nd **a, t_nd **b);
 void    go_ra(t_nd **a, t_nd **b);
+void    go_rb(t_nd **a, t_nd **b);
+void    go_rr(t_nd **a, t_nd **b);
+void    go_rra(t_nd **a, t_nd **b);
+void    go_rrb(t_nd **a, t_nd **b);
+void    go_rrr(t_nd **a, t_nd **b);
 
 #endif

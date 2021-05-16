@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:59:28 by spark             #+#    #+#             */
-/*   Updated: 2021/05/16 22:48:57 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/17 01:12:03 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,11 +15,8 @@
 void    node_erase(t_nd *tmp)
 {
     if (tmp->next)
-    {
-        tmp->prev->next = tmp->next;
-        tmp->next->prev = tmp->prev;
-    }
-    else
+        tmp->next->prev = 0;
+    else if (tmp->prev)
         tmp->prev->next = 0;
     free(tmp);
 }
@@ -68,16 +65,16 @@ void    link_nd(t_nd **nd, char *val, t_nd *head)
             exit(1);
         }
         else
-            tmp = tmp->next;
+            tmp = tmp->prev;
     }
     if (tmp_nd->val < -2147483648 || tmp_nd->val > 2147483647)
     {
         ft_putstr_fd("Error", 2);
         exit(1);
     }
-    tmp_nd->prev = *nd;
-    tmp_nd->prev->next = tmp_nd;
-    tmp_nd->next = 0;
+    tmp_nd->next = *nd;
+    tmp_nd->next->prev = tmp_nd;
+    tmp_nd->prev = 0;
 }
 
 t_nd	*new_nd(char *val)
@@ -120,8 +117,8 @@ void    make_list(char **str, t_nd **baskt_a)
     i = 0;
     tmp_nd = *baskt_a;
     if (tmp_nd != NULL)
-        while (tmp_nd->next)
-            tmp_nd = tmp_nd->next;
+        while (tmp_nd->prev)
+            tmp_nd = tmp_nd->prev;
     else
     {
         *baskt_a = new_nd(str[i++]);
@@ -130,8 +127,8 @@ void    make_list(char **str, t_nd **baskt_a)
     while (str[i])
     {
         link_nd(&tmp_nd, str[i++], *baskt_a);
-        if (tmp_nd->next)
-            tmp_nd = tmp_nd->next;
+        if (tmp_nd->prev)
+            tmp_nd = tmp_nd->prev;
     }
     i = 0;
 }

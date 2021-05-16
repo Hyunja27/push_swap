@@ -13,6 +13,7 @@ SRCS =	main.c\
 		srcs/list_control.c\
 		srcs/basic_action.c\
 		srcs/basic_action_2.c\
+		srcs/basic_action_3.c\
 		srcs/utils.c\
 
 all : $(NAME)
