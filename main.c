@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:28:56 by spark             #+#    #+#             */
-/*   Updated: 2021/05/16 21:04:40 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/16 23:03:45 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,9 +18,11 @@ int main(int ac, char *av[])
     char    **str;
     int     i;
     t_nd    *basket_a;
+    t_nd    *basket_b;
 
     i = 1;
     basket_a = 0;
+    basket_b = 0;
     if (ac == 1)
     {
         ft_putstr_fd("Error\n", 2);
@@ -36,7 +38,36 @@ int main(int ac, char *av[])
             free_matrix(&str);
         }
     }
+
+    
     print_list(basket_a);
+
+    go_ra(&basket_a, &basket_b);
+    printf("\n\n=========\n\n");
+    
+    print_list(basket_a);
+
+
+    // go_pb(&basket_a, &basket_b);
+
+    // printf("\n\n\n\n");
+    
+    // print_list(basket_a);
+    // printf("\n=========\n");
+    // print_list(basket_b);
+
+    // go_pa(&basket_a, &basket_b);
+
+    // printf("\n\n\n\n");
+    
+    // print_list(basket_a);
+    // printf("\n=========\n");
+    // print_list(basket_b);
+
+    // printf("\n\n\n\n");
+    // go_pb(basket_a, basket_a);
+    
+    // print_list(basket_a);
     return (0);
 }
 

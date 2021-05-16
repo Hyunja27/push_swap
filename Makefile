@@ -10,7 +10,10 @@ LIB_DIR = ./libft
 SRCS_DIR = ./srcs
 
 SRCS =	main.c\
-		list_control.c\
+		srcs/list_control.c\
+		srcs/basic_action.c\
+		srcs/basic_action_2.c\
+		srcs/utils.c\
 
 all : $(NAME)
 
