@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:59:28 by spark             #+#    #+#             */
-/*   Updated: 2021/05/16 21:16:17 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/16 21:45:41 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,13 +51,26 @@ void	free_matrix(char ***matrix)
 	free((*matrix));
 }
 
-void    link_nd(t_nd **nd, char *val)
+void    link_nd(t_nd **nd, char *val, t_nd *head)
 {
 	t_nd	*tmp_nd;
+    t_nd	*tmp;
+
+    tmp = head;
     tmp_nd = malloc(sizeof(t_nd) * 1);
     if (!tmp_nd)
 		exit (1);
 	tmp_nd->val = ft_atol(val);
+    while (tmp)
+    {
+        if (tmp->val == tmp_nd->val)
+        {
+            ft_putstr_fd("Error", 2);
+            exit(1);
+        }
+        else
+            tmp = tmp->next;
+    }
     if (tmp_nd->val < -2147483648 || tmp_nd->val > 2147483647)
     {
         ft_putstr_fd("Error", 2);
@@ -101,6 +114,7 @@ void    make_list(char **str, t_nd **baskt_a)
 {
     long long       i;
     t_nd            *tmp_nd;
+    
 
     i = 0;
     tmp_nd = *baskt_a;
@@ -114,7 +128,7 @@ void    make_list(char **str, t_nd **baskt_a)
     }
     while (str[i])
     {
-        link_nd(&tmp_nd, str[i++]);
+        link_nd(&tmp_nd, str[i++], *baskt_a);
         if (tmp_nd->next)
             tmp_nd = tmp_nd->next;
     }
