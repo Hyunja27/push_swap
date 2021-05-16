@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   libft.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/09/28 14:32:23 by hyunja            #+#    #+#             */
-/*   Updated: 2021/05/06 00:02:46 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/16 21:19:22 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -212,5 +212,6 @@ int										get_next_line(int fd, char **line);
 int										ft_strcmp(const char *s1,\
 										const char *s2);
 char									*ft_strcat(char *dest, const char *src);
+long									ft_atol(const char *str);
 
 #endif

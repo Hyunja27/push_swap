@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:36:56 by spark             #+#    #+#             */
-/*   Updated: 2021/05/16 18:02:47 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/16 20:20:12 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,7 @@ typedef struct  s_nd
 void    make_list(char **str, t_nd **baskt_a);
 void	free_matrix(char ***matrix);
 
+void	print_args(int  val);
+void	print_list(t_nd *com);
 
 #endif

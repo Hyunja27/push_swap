@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:28:56 by spark             #+#    #+#             */
-/*   Updated: 2021/05/16 18:19:43 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/16 21:04:40 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@ int main(int ac, char *av[])
 {
     char    **str;
     int     i;
-    t_nd  *basket_a;
+    t_nd    *basket_a;
 
-    i = -1;
+    i = 1;
     basket_a = 0;
     if (ac == 1)
     {
@@ -28,13 +28,15 @@ int main(int ac, char *av[])
     }
     else
     {
-        while (++i < ac)
+        while (av[i])
         {
-            str = ft_split(av[1], ' ');
+            str = ft_split(av[i], ' ');
             make_list(str, &basket_a);
-            // free_matrix(&str);
+            i++;
+            free_matrix(&str);
         }
     }
+    print_list(basket_a);
     return (0);
 }
 
