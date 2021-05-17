@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:36:56 by spark             #+#    #+#             */
-/*   Updated: 2021/05/17 01:26:50 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/17 15:22:40 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,17 +25,27 @@ typedef struct  s_nd
     struct s_nd   *prev;
 }               t_nd;
 
-void    make_list(char **str, t_nd **baskt_a);
+typedef struct  s_stat
+{
+    long            max;
+    long            min;
+    long            a_size;
+    long            b_size;
+    long            count;
+}               t_stat;
+
+void    make_list(char **str, t_nd **baskt_a, t_stat *s);
 void	print_args(int  val);
 void	print_list(t_nd *com);
 void	free_matrix(char ***matrix);
 int		matrix_line_num(char **matrix);
 void    node_erase(t_nd *tmp);
-void    link_nd_int(t_nd **nd, long val, t_nd *head);
-t_nd	*new_nd_int(long val);
-t_nd	*new_nd(char *val);
-void    link_nd(t_nd **nd, char *val, t_nd *head);
+void    link_nd_int(t_nd **nd, long val, t_nd *head, t_stat *s);
+t_nd	*new_nd_int(long val, t_stat *s);
+t_nd	*new_nd(char *val, t_stat *s);
+void    link_nd(t_nd **nd, char *val, t_nd *head, t_stat *s);
 void	free_memory(t_nd *nd);
+void	init_stat(t_stat *s);
 
 
 void    go_sa(t_nd *a, t_nd *b);

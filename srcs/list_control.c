@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:59:28 by spark             #+#    #+#             */
-/*   Updated: 2021/05/17 01:12:03 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/17 15:20:02 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ t_nd	*new_nd_int(long val)
 	return (tmp_nd);
 }
 
-void    make_list(char **str, t_nd **baskt_a)
+void    make_list(char **str, t_nd **baskt_a, t_stat *s)
 {
     long long       i;
     t_nd            *tmp_nd;
@@ -121,12 +121,12 @@ void    make_list(char **str, t_nd **baskt_a)
             tmp_nd = tmp_nd->prev;
     else
     {
-        *baskt_a = new_nd(str[i++]);
+        *baskt_a = new_nd(str[i++], s);
         tmp_nd = *baskt_a;
     }
     while (str[i])
     {
-        link_nd(&tmp_nd, str[i++], *baskt_a);
+        link_nd(&tmp_nd, str[i++], *baskt_a, s);
         if (tmp_nd->prev)
             tmp_nd = tmp_nd->prev;
     }

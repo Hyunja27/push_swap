@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:59:28 by spark             #+#    #+#             */
-/*   Updated: 2021/05/17 01:26:12 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/17 15:17:04 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,4 +84,13 @@ void	free_memory(t_nd *nd)
 			break ;
 		tmp2 = 0;
 	}
+}
+
+void	init_stat(t_stat *s)
+{
+	s->a_size = 0;
+	s->b_size = 0;
+	s->count = 0;
+	s->max = 0;
+	s->min = 0;
 }

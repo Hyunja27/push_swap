@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:28:56 by spark             #+#    #+#             */
-/*   Updated: 2021/05/17 01:29:17 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/17 15:19:05 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,10 @@ int main(int ac, char *av[])
     int     i;
     t_nd    *basket_a;
     t_nd    *basket_b;
+    t_stat  info;
 
     i = 1;
+    init_stat(&info);
     basket_a = 0;
     basket_b = 0;
     if (ac == 1)
@@ -33,56 +35,13 @@ int main(int ac, char *av[])
         while (av[i])
         {
             str = ft_split(av[i], ' ');
-            make_list(str, &basket_a);
+            make_list(str, &basket_a, &info);
             i++;
             free_matrix(&str);
         }
     }
-
-    
-    print_list(basket_a);
-    // printf("\n=========\n");
-    // print_list(basket_b);
-    
-    go_rra(&basket_a, &basket_b);
-    go_rra(&basket_a, &basket_b);
-    go_rra(&basket_a, &basket_b);
-    go_rra(&basket_a, &basket_b);
-    go_rra(&basket_a, &basket_b);
-    printf("\n\n\n\n=======================\n\n\n\n");
-    
-    print_list(basket_a);
-    // printf("\n=========\n");
-    // print_list(basket_b);
-
-
-    // go_pb(&basket_a, &basket_b);
-
-    // printf("\n\n\n\n");
-    
-    // print_list(basket_a);
-    // printf("\n=========\n");
-    // print_list(basket_b);
-
-    // go_pa(&basket_a, &basket_b);
-
-    // printf("\n\n\n\n");
-    
-    // print_list(basket_a);
-    // printf("\n=========\n");
-    // print_list(basket_b);
-
-    // printf("\n\n\n\n");
-    // go_pb(basket_a, basket_a);
-    
-    // print_list(basket_a);
+    // lets_roll(&basket_a, &basket_b);
     free_memory(basket_a);
     free_memory(basket_b);
     return (0);
 }
-
-        // while(str[++i])
-        // {
-        //     write(1, str[i], ft_strlen(str[i]));
-        //     write(1, "\n", 1);
-        // }
