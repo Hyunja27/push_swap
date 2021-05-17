@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
+/*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:36:56 by spark             #+#    #+#             */
-/*   Updated: 2021/05/17 15:22:40 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/17 15:47:30 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,16 +48,16 @@ void	free_memory(t_nd *nd);
 void	init_stat(t_stat *s);
 
 
-void    go_sa(t_nd *a, t_nd *b);
-void    go_sb(t_nd *a, t_nd *b);
-void    go_ss(t_nd *a, t_nd *b);
-void    go_pa(t_nd **a, t_nd **b);
-void    go_pb(t_nd **a, t_nd **b);
-void    go_ra(t_nd **a, t_nd **b);
-void    go_rb(t_nd **a, t_nd **b);
-void    go_rr(t_nd **a, t_nd **b);
-void    go_rra(t_nd **a, t_nd **b);
-void    go_rrb(t_nd **a, t_nd **b);
-void    go_rrr(t_nd **a, t_nd **b);
+void    go_sa(t_nd *a, t_nd *b, t_stat *s);
+void    go_sb(t_nd *a, t_nd *b, t_stat *s);
+void    go_ss(t_nd *a, t_nd *b, t_stat *s);
+void    go_pa(t_nd **a, t_nd **b, t_stat *s);
+void    go_pb(t_nd **a, t_nd **b, t_stat *s);
+void    go_ra(t_nd **a, t_nd **b, t_stat *s);
+void    go_rb(t_nd **a, t_nd **b, t_stat *s);
+void    go_rr(t_nd **a, t_nd **b, t_stat *s);
+void    go_rra(t_nd **a, t_nd **b, t_stat *s);
+void    go_rrb(t_nd **a, t_nd **b, t_stat *s);
+void    go_rrr(t_nd **a, t_nd **b, t_stat *s);
 
 #endif

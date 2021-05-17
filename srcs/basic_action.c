@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   basic_action.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
+/*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 21:52:46 by spark             #+#    #+#             */
-/*   Updated: 2021/05/17 00:59:11 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/17 15:48:40 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    go_sa(t_nd *a, t_nd *b)
+void    go_sa(t_nd *a, t_nd *b, t_stat *s)
 {
     t_nd    *tmp;
     long    tmp_int;
@@ -28,7 +28,7 @@ void    go_sa(t_nd *a, t_nd *b)
     (void)b;
 }
 
-void    go_sb(t_nd *a, t_nd *b)
+void    go_sb(t_nd *a, t_nd *b, t_stat *s)
 {
     t_nd    *tmp;
     long    tmp_int;
@@ -44,13 +44,13 @@ void    go_sb(t_nd *a, t_nd *b)
     (void)a;
 }
 
-void    go_ss(t_nd *a, t_nd *b)
+void    go_ss(t_nd *a, t_nd *b, t_stat *s)
 {
-    go_sa(a, b);
-    go_sb(a, b);
+    go_sa(a, b, s);
+    go_sb(a, b, s);
 }
 
-void    go_pa(t_nd **a, t_nd **b)
+void    go_pa(t_nd **a, t_nd **b, t_stat *s)
 {
     t_nd    *tmp;
     long    tmp_int;
@@ -65,15 +65,15 @@ void    go_pa(t_nd **a, t_nd **b)
         *b = tmp->prev;
     node_erase(tmp);
     if (!(*a))
-        *a = new_nd_int(tmp_int);
+        *a = new_nd_int(tmp_int, s);
     else
     {
-        link_nd_int(a, tmp_int, *a);
+        link_nd_int(a, tmp_int, *a, s);
         *a = (*a)->next;
     }
 }
 
-void    go_pb(t_nd **a, t_nd **b)
+void    go_pb(t_nd **a, t_nd **b, t_stat *s)
 {
     t_nd    *tmp;
     long    tmp_int;
@@ -88,10 +88,10 @@ void    go_pb(t_nd **a, t_nd **b)
         *a = tmp->prev;
     node_erase(tmp);
     if (!(*b))
-        *b = new_nd_int(tmp_int);
+        *b = new_nd_int(tmp_int, s);
     else
     {
-        link_nd_int(b, tmp_int, *b);
+        link_nd_int(b, tmp_int, *b, s);
         *b = (*b)->next;
     }
 }

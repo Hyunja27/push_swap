@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   basic_action_2.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
+/*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 21:52:46 by spark             #+#    #+#             */
-/*   Updated: 2021/05/17 01:06:46 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/17 15:49:17 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    go_ra(t_nd **a, t_nd **b)
+void    go_ra(t_nd **a, t_nd **b, t_stat *s)
 {
     t_nd    *tmp;
     t_nd    *tmp_prev;
@@ -27,7 +27,7 @@ void    go_ra(t_nd **a, t_nd **b)
             tmp_prev = tmp->prev;
             node_erase(tmp);
             *a = tmp_prev;
-            new_head = new_nd_int(tmp_int);
+            new_head = new_nd_int(tmp_int, s);
             while (tmp_prev->prev)
                 tmp_prev = tmp_prev->prev;        
             new_head->next = tmp_prev;
@@ -36,7 +36,7 @@ void    go_ra(t_nd **a, t_nd **b)
     (void)b;
 }
 
-void    go_rb(t_nd **a, t_nd **b)
+void    go_rb(t_nd **a, t_nd **b, t_stat *s)
 {
     t_nd    *tmp;
     t_nd    *tmp_prev;
@@ -51,7 +51,7 @@ void    go_rb(t_nd **a, t_nd **b)
             tmp_prev = tmp->prev;
             node_erase(tmp);
             *b = tmp_prev;
-            new_head = new_nd_int(tmp_int);
+            new_head = new_nd_int(tmp_int, s);
             while (tmp_prev->prev)
                 tmp_prev = tmp_prev->prev;        
             new_head->next = tmp_prev;
@@ -60,8 +60,8 @@ void    go_rb(t_nd **a, t_nd **b)
     (void)a;
 }
 
-void    go_rr(t_nd **a, t_nd **b)
+void    go_rr(t_nd **a, t_nd **b, t_stat *s)
 {
-    go_ra(a, b);
-    go_rb(a, b);
+    go_ra(a, b, s);
+    go_rb(a, b, s);
 }

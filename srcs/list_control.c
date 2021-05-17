@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_control.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
+/*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:59:28 by spark             #+#    #+#             */
-/*   Updated: 2021/05/17 15:20:02 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/17 15:46:32 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void    node_erase(t_nd *tmp)
     free(tmp);
 }
 
-void    link_nd_int(t_nd **nd, long val, t_nd *head)
+void    link_nd_int(t_nd **nd, long val, t_nd *head, t_stat *s)
 {
 	t_nd	*tmp_nd;
     t_nd	*tmp;
@@ -41,13 +41,17 @@ void    link_nd_int(t_nd **nd, long val, t_nd *head)
         else
             tmp = tmp->next;
     }
+    if (tmp_nd->val < s->min)
+        s->min = tmp_nd->val;
+    if (tmp_nd->val > s->max)
+        s->max = tmp_nd->val;
     tmp_nd->prev = *nd;
     if (tmp_nd->prev)
         tmp_nd->prev->next = tmp_nd;
     tmp_nd->next = 0;
 }
 
-void    link_nd(t_nd **nd, char *val, t_nd *head)
+void    link_nd(t_nd **nd, char *val, t_nd *head, t_stat *s)
 {
 	t_nd	*tmp_nd;
     t_nd	*tmp;
@@ -72,12 +76,16 @@ void    link_nd(t_nd **nd, char *val, t_nd *head)
         ft_putstr_fd("Error", 2);
         exit(1);
     }
+    if (tmp_nd->val < s->min)
+        s->min = tmp_nd->val;
+    if (tmp_nd->val > s->max)
+        s->max = tmp_nd->val;
     tmp_nd->next = *nd;
     tmp_nd->next->prev = tmp_nd;
     tmp_nd->prev = 0;
 }
 
-t_nd	*new_nd(char *val)
+t_nd	*new_nd(char *val, t_stat *s)
 {
 	t_nd	*tmp_nd;
 
@@ -90,12 +98,16 @@ t_nd	*new_nd(char *val)
         ft_putstr_fd("Error", 2);
         exit(1);
     }
+    if (tmp_nd->val < s->min)
+        s->min = tmp_nd->val;
+    if (tmp_nd->val > s->max)
+        s->max = tmp_nd->val;
     tmp_nd->prev = 0;
     tmp_nd->next = 0;
 	return (tmp_nd);
 }
 
-t_nd	*new_nd_int(long val)
+t_nd	*new_nd_int(long val, t_stat *s)
 {
 	t_nd	*tmp_nd;
 
@@ -103,6 +115,10 @@ t_nd	*new_nd_int(long val)
     if (!tmp_nd)
 		return (NULL);
 	tmp_nd->val = val;
+    if (tmp_nd->val < s->min)
+        s->min = tmp_nd->val;
+    if (tmp_nd->val > s->max)
+        s->max = tmp_nd->val;
     tmp_nd->prev = 0;
     tmp_nd->next = 0;
 	return (tmp_nd);
