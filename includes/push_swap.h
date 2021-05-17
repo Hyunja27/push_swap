@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:36:56 by spark             #+#    #+#             */
-/*   Updated: 2021/05/17 15:47:30 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/17 17:45:47 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,6 +46,7 @@ t_nd	*new_nd(char *val, t_stat *s);
 void    link_nd(t_nd **nd, char *val, t_nd *head, t_stat *s);
 void	free_memory(t_nd *nd);
 void	init_stat(t_stat *s);
+void    lets_roll(t_nd **a, t_nd **b, t_stat *s);
 
 
 void    go_sa(t_nd *a, t_nd *b, t_stat *s);

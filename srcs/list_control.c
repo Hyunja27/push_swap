@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_control.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:59:28 by spark             #+#    #+#             */
-/*   Updated: 2021/05/17 15:46:32 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/17 17:58:27 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -98,10 +98,8 @@ t_nd	*new_nd(char *val, t_stat *s)
         ft_putstr_fd("Error", 2);
         exit(1);
     }
-    if (tmp_nd->val < s->min)
-        s->min = tmp_nd->val;
-    if (tmp_nd->val > s->max)
-        s->max = tmp_nd->val;
+    s->max = tmp_nd->val;
+    s->min = tmp_nd->val;
     tmp_nd->prev = 0;
     tmp_nd->next = 0;
 	return (tmp_nd);
@@ -115,10 +113,8 @@ t_nd	*new_nd_int(long val, t_stat *s)
     if (!tmp_nd)
 		return (NULL);
 	tmp_nd->val = val;
-    if (tmp_nd->val < s->min)
-        s->min = tmp_nd->val;
-    if (tmp_nd->val > s->max)
-        s->max = tmp_nd->val;
+    s->max = tmp_nd->val;
+    s->min = tmp_nd->val;
     tmp_nd->prev = 0;
     tmp_nd->next = 0;
 	return (tmp_nd);
@@ -139,12 +135,14 @@ void    make_list(char **str, t_nd **baskt_a, t_stat *s)
     {
         *baskt_a = new_nd(str[i++], s);
         tmp_nd = *baskt_a;
+        s->a_size++;
     }
     while (str[i])
     {
         link_nd(&tmp_nd, str[i++], *baskt_a, s);
         if (tmp_nd->prev)
             tmp_nd = tmp_nd->prev;
+        s->a_size++;
     }
     i = 0;
 }

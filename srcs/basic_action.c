@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   basic_action.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 21:52:46 by spark             #+#    #+#             */
-/*   Updated: 2021/05/17 15:48:40 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/17 19:24:01 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ void    go_sa(t_nd *a, t_nd *b, t_stat *s)
             tmp->prev->val = tmp_int;
         }
     (void)b;
+    (void)s;
 }
 
 void    go_sb(t_nd *a, t_nd *b, t_stat *s)
@@ -42,6 +43,7 @@ void    go_sb(t_nd *a, t_nd *b, t_stat *s)
             tmp->prev->val = tmp_int;
         }
     (void)a;
+    (void)s;
 }
 
 void    go_ss(t_nd *a, t_nd *b, t_stat *s)
@@ -71,6 +73,7 @@ void    go_pa(t_nd **a, t_nd **b, t_stat *s)
         link_nd_int(a, tmp_int, *a, s);
         *a = (*a)->next;
     }
+    s->a_size++;
 }
 
 void    go_pb(t_nd **a, t_nd **b, t_stat *s)
@@ -94,4 +97,5 @@ void    go_pb(t_nd **a, t_nd **b, t_stat *s)
         link_nd_int(b, tmp_int, *b, s);
         *b = (*b)->next;
     }
+    s->b_size++;
 }

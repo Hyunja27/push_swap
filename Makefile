@@ -15,6 +15,7 @@ SRCS =	main.c\
 		srcs/basic_action_2.c\
 		srcs/basic_action_3.c\
 		srcs/utils.c\
+		srcs/algorithm.c\
 
 all : $(NAME)
 
