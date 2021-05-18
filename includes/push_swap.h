@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:36:56 by spark             #+#    #+#             */
-/*   Updated: 2021/05/17 17:45:47 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/18 11:52:39 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,6 +31,8 @@ typedef struct  s_stat
     long            min;
     long            a_size;
     long            b_size;
+    long            a_mid;
+    long            b_mid;    
     long            count;
 }               t_stat;
 
@@ -47,6 +49,9 @@ void    link_nd(t_nd **nd, char *val, t_nd *head, t_stat *s);
 void	free_memory(t_nd *nd);
 void	init_stat(t_stat *s);
 void    lets_roll(t_nd **a, t_nd **b, t_stat *s);
+void	get_middle(t_nd *stack, long *memory, t_stat *s);
+void    quick_a_to_b(t_nd **a, t_nd **b, t_stat *s, int len);
+void    quick_b_to_a(t_nd **a, t_nd **b, t_stat *s, int len);
 
 
 void    go_sa(t_nd *a, t_nd *b, t_stat *s);

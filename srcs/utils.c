@@ -6,11 +6,35 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:59:28 by spark             #+#    #+#             */
-/*   Updated: 2021/05/17 17:58:41 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/18 11:15:59 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	get_middle(t_nd *stack, long *memory, t_stat *s)
+{
+	long	anker;
+	long	range;
+	long	tmp_range;
+	t_nd	*tmp;
+
+	tmp = stack;
+	anker = ((s->max - s->min) / 2) + 1;
+	range = s->max / 2;
+	while (tmp)
+	{
+		tmp_range = tmp->val - anker;
+		if (tmp_range < 0)
+			tmp_range *= -1;
+		if (tmp_range < range)
+		{
+			range = tmp_range;
+			*memory = tmp->val;
+		}
+		tmp = tmp->prev;
+	}	
+}
 
 void	print_args(int  val)
 {
