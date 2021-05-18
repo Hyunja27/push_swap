@@ -3,14 +3,31 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
+/*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:59:28 by spark             #+#    #+#             */
-/*   Updated: 2021/05/18 11:15:59 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/18 15:24:15 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	get_minmax(t_nd *stack, t_stat *s)
+{
+	t_nd	*tmp;
+	tmp = stack;
+	s->min = stack->val;
+	s->max = stack->val;
+	while (tmp)
+	{
+		if (tmp->val < s->min)
+        	s->min = tmp->val;
+    	if (tmp->val > s->max)
+        	s->max = tmp->val;
+		tmp = tmp->prev;
+	}
+	
+}
 
 void	get_middle(t_nd *stack, long *memory, t_stat *s)
 {
@@ -20,6 +37,7 @@ void	get_middle(t_nd *stack, long *memory, t_stat *s)
 	t_nd	*tmp;
 
 	tmp = stack;
+	get_minmax(stack, s);
 	anker = ((s->max - s->min) / 2) + 1;
 	range = s->max / 2;
 	while (tmp)

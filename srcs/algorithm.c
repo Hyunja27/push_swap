@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
+/*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 14:34:18 by spark             #+#    #+#             */
-/*   Updated: 2021/05/18 12:49:46 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/18 15:09:09 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void    quick_a_to_b(t_nd **a, t_nd **b, t_stat *s, int len)
         }
         else
         {
-            printf("\n-> %ld",(*a)->val);
+            printf("\n-> %ld", (*a)->val);
             go_pb(a, b, s);
             count_p++;
         }
@@ -81,7 +81,7 @@ void    quick_b_to_a(t_nd **a, t_nd **b, t_stat *s, int len)
     while (++j < count_r)
         go_rrb(a, b, s); 
     quick_a_to_b(a, b, s, count_p);
-    quick_b_to_a(a, b, s, count_r);
+    quick_b_to_a(a, b, s, len);
 }
 
 
