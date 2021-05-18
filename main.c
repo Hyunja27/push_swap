@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
+/*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:28:56 by spark             #+#    #+#             */
-/*   Updated: 2021/05/18 12:11:43 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/18 18:03:38 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,13 +40,22 @@ int main(int ac, char *av[])
             free_matrix(&str);
         }
     }
-    // print_list(basket_a);
-
-    // printf("\n\n\n\n[==================================]\n\n\n\n");
+    // printf("\n\n//====================\n");
+	// print_list(basket_a);
+	// printf("\n\n====================\n\n");
+	// print_list(basket_b);
+	// printf("\n====================//\n\n");
+	// sleep(4);
+    
     lets_roll(&basket_a, &basket_b, &info);
 
     // print_list(basket_a);
-    
+
+    printf("\n//////////////////////\n");
+	print_list(basket_a);
+	printf("\n\n====================\n\n");
+	print_list(basket_b);
+	printf("\\\\\\\\\\\\\\\\\\\\\\final//\n\n\n\n");
 
     
     free_memory(basket_a);

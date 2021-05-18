@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 14:34:18 by spark             #+#    #+#             */
-/*   Updated: 2021/05/18 15:09:09 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/18 18:03:05 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,80 +14,99 @@
 
 void    quick_a_to_b(t_nd **a, t_nd **b, t_stat *s, int len)
 {
-    int     count_r;
-    int     count_p;
-    int     i;
-    int     j;
+	int     count_r;
+	int     count_p;
+	int     i;
+	int     j;
 
-    count_r = 0;
-    count_p = 0;
-    i = -1;
-    j = -1;
-    if (len == 1)
-        return ;
-    get_middle(*a, &(s->a_mid), s);
-    while (++i < len)
-    {
-        if ((*a)->val > s->a_mid)
-        {
-            go_ra(a, b, s);
-            count_r++;
-        }
-        else
-        {
-            printf("\n-> %ld", (*a)->val);
-            go_pb(a, b, s);
-            count_p++;
-        }
-    }
-    while (++j < count_r)
-    {
-        go_rra(a, b, s);
-    }
-    quick_a_to_b(a, b, s, count_r);
-    quick_b_to_a(a, b, s, count_p);
+	count_r = 0;
+	count_p = 0;
+	i = -1;
+	j = -1;
+	if (len == 1)
+		return ;
+	// get_middle(*a, &(s->a_mid), s);
+	s->a_mid =	(*a)->val;
+	while (++i < len)
+	{
+		if ((*a)->val > s->a_mid)
+		{
+			go_ra(a, b, s);
+			count_r++;
+		}
+		else
+		{
+			go_pb(a, b, s);
+			count_p++;
+		}
+	}
+	while (++j < count_r)
+	{
+		go_rra(a, b, s);
+	}
+	
+	printf("\n//////////////////////\n");
+	print_list(*a);
+	printf("\n\n====================\n\n");
+	print_list(*b);
+	printf("\\\\\\\\\\\\\\\\\\\\\\by a to b//\n\n\n\n");
+	sleep(2);
+	
+	quick_a_to_b(a, b, s, count_r);
+	quick_b_to_a(a, b, s, count_p);
 }
 
 void    quick_b_to_a(t_nd **a, t_nd **b, t_stat *s, int len)
 {
-    int     count_r;
-    int     count_p;
-    int     i;
-    int     j;
+	int     count_r;
+	int     count_p;
+	int     i;
+	int     j;
 
-    count_r = 0;
-    count_p = 0;
-    i = -1;
-    j = -1;
-    if (len == 1)
-    {
-        go_pa(a, b, s);
-        return ;
-    }
-    get_middle(*b, &(s->b_mid), s);
-    while (++i < len)
-    {
-        if ((*b)->val > s->b_mid)
-        {
-            go_rb(a, b, s);
-            count_r++;
-        }
-        else
-        {
-            go_pa(a, b, s);
-            count_p++;
-        } 
-    }
-    while (++j < count_r)
-        go_rrb(a, b, s); 
-    quick_a_to_b(a, b, s, count_p);
-    quick_b_to_a(a, b, s, len);
+	count_r = 0;
+	count_p = 0;
+	i = -1;
+	j = -1;
+	if (len == 1)
+	{
+		go_pa(a, b, s);
+		return ;
+	}
+	// get_middle(*b, &(s->b_mid), s);
+	s->b_mid =	(*b)->val;
+	while (++i < len)
+	{
+		if ((*b)->val > s->b_mid)
+		{
+			go_rb(a, b, s);
+			count_r++;
+		}
+		else
+		{
+			go_pa(a, b, s);
+			count_p++;
+		}
+	}
+	while (++j < count_r)
+	{
+		go_rrb(a, b, s);
+	}
+	
+	printf("\n//////////////////////\n");
+	print_list(*a);
+	printf("\n\n====================\n\n");
+	print_list(*b);
+	printf("\\\\\\\\\\\\\\\\\\\\\\by b to a//\n\n\n\n");
+	sleep(2);
+	
+	quick_a_to_b(a, b, s, count_p);
+	quick_b_to_a(a, b, s, count_r);
 }
 
 
 void    lets_roll(t_nd **a, t_nd **b, t_stat *s)
 {
-    quick_a_to_b(a, b, s, (int)s->a_size);
+	quick_a_to_b(a, b, s, s->a_size);
 }
 
 // void    lets_roll(t_nd **a, t_nd **b, t_stat *s)

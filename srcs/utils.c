@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:59:28 by spark             #+#    #+#             */
-/*   Updated: 2021/05/18 15:24:15 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/18 17:33:06 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@ void	get_minmax(t_nd *stack, t_stat *s)
     	if (tmp->val > s->max)
         	s->max = tmp->val;
 		tmp = tmp->prev;
+		printf("\n[%ld], %ld\n", s->max, s->min);
 	}
-	
+	printf("\n===================\n");
 }
 
 void	get_middle(t_nd *stack, long *memory, t_stat *s)
@@ -38,8 +39,11 @@ void	get_middle(t_nd *stack, long *memory, t_stat *s)
 
 	tmp = stack;
 	get_minmax(stack, s);
-	anker = ((s->max - s->min) / 2) + 1;
-	range = s->max / 2;
+	anker = ((s->max - s->min) / 2);
+	*memory = tmp->val;
+	range = tmp->val - anker;
+	if (range < 0)
+		range *= -1;
 	while (tmp)
 	{
 		tmp_range = tmp->val - anker;

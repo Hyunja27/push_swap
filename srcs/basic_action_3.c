@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 21:52:46 by spark             #+#    #+#             */
-/*   Updated: 2021/05/17 15:50:03 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/18 17:30:38 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void    go_rrb(t_nd **a, t_nd **b, t_stat *s)
             tmp_int = tmp->val;
             node_erase(tmp);
             new_head = new_nd_int(tmp_int, s);      
-            (*a)->next = new_head;
+            (*b)->next = new_head;
             new_head->prev = *b;
             *b = new_head;
         } 
