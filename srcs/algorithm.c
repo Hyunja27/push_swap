@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 14:34:18 by spark             #+#    #+#             */
-/*   Updated: 2021/05/18 18:03:05 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/18 20:05:00 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ void    quick_a_to_b(t_nd **a, t_nd **b, t_stat *s, int len)
 	s->a_mid =	(*a)->val;
 	while (++i < len)
 	{
-		if ((*a)->val > s->a_mid)
+		if ((*a)->val >= s->a_mid)
 		{
 			go_ra(a, b, s);
 			count_r++;
@@ -53,7 +53,10 @@ void    quick_a_to_b(t_nd **a, t_nd **b, t_stat *s, int len)
 	sleep(2);
 	
 	quick_a_to_b(a, b, s, count_r);
+	printf("\n[%d]\n",count_p);
 	quick_b_to_a(a, b, s, count_p);
+	
+	// quick_a_to_b(a, b, s, count_r);
 }
 
 void    quick_b_to_a(t_nd **a, t_nd **b, t_stat *s, int len)
@@ -98,7 +101,7 @@ void    quick_b_to_a(t_nd **a, t_nd **b, t_stat *s, int len)
 	print_list(*b);
 	printf("\\\\\\\\\\\\\\\\\\\\\\by b to a//\n\n\n\n");
 	sleep(2);
-	
+
 	quick_a_to_b(a, b, s, count_p);
 	quick_b_to_a(a, b, s, count_r);
 }
