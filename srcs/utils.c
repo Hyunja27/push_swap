@@ -6,11 +6,53 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:59:28 by spark             #+#    #+#             */
-/*   Updated: 2021/05/19 16:37:46 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/19 17:53:45 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	real_rb(t_nd **a, t_nd **b, t_stat *s)
+{
+	printf("rb\n");
+	go_rb(a, b, s);	
+}
+
+void	real_ra(t_nd **a, t_nd **b, t_stat *s)
+{
+	printf("ra\n");
+	go_ra(a, b, s);	
+}
+
+int		is_all_ra(t_nd *target, t_stat *s, int i, int len)
+{
+	int	j;
+
+	j = i;
+	while (j < len)
+	{
+		if ((target->val > s->a_mid))
+			return (1);
+		target = target->prev;
+		j++;
+	}
+	return (0);
+}
+
+int		is_all_rb(t_nd *target, t_stat *s, int i, int len)
+{
+	int	j;
+
+	j = i;
+	while (j < len)
+	{
+		if ((target->val <= s->b_mid))
+			return (1);
+		target = target->prev;
+		j++;
+	}
+	return (0);
+}
 
 void	get_minmax_len(t_nd *stack, t_stat *s, int len)
 {

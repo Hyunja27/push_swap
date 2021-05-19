@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   basic_action.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
+/*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 21:52:46 by spark             #+#    #+#             */
-/*   Updated: 2021/05/17 19:24:01 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/19 17:31:09 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -74,6 +74,7 @@ void    go_pa(t_nd **a, t_nd **b, t_stat *s)
         *a = (*a)->next;
     }
     s->a_size++;
+    s->b_size--;
 }
 
 void    go_pb(t_nd **a, t_nd **b, t_stat *s)
@@ -98,4 +99,5 @@ void    go_pb(t_nd **a, t_nd **b, t_stat *s)
         *b = (*b)->next;
     }
     s->b_size++;
+    s->a_size--;
 }
