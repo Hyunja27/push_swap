@@ -6,56 +6,46 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:59:28 by spark             #+#    #+#             */
-/*   Updated: 2021/05/18 17:33:06 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/19 16:37:46 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	get_minmax(t_nd *stack, t_stat *s)
+void	get_minmax_len(t_nd *stack, t_stat *s, int len)
 {
 	t_nd	*tmp;
+	int		i;
+
 	tmp = stack;
+	i = -1;
 	s->min = stack->val;
 	s->max = stack->val;
-	while (tmp)
+	while (++i < len)
 	{
 		if (tmp->val < s->min)
         	s->min = tmp->val;
     	if (tmp->val > s->max)
         	s->max = tmp->val;
 		tmp = tmp->prev;
-		printf("\n[%ld], %ld\n", s->max, s->min);
 	}
-	printf("\n===================\n");
 }
 
-void	get_middle(t_nd *stack, long *memory, t_stat *s)
+void	get_middle_len(t_nd *stack, long *memory, t_stat *s, int len)
 {
 	long	anker;
-	long	range;
-	long	tmp_range;
 	t_nd	*tmp;
+	int		i;
 
+	i = -1;
 	tmp = stack;
-	get_minmax(stack, s);
-	anker = ((s->max - s->min) / 2);
-	*memory = tmp->val;
-	range = tmp->val - anker;
-	if (range < 0)
-		range *= -1;
-	while (tmp)
-	{
-		tmp_range = tmp->val - anker;
-		if (tmp_range < 0)
-			tmp_range *= -1;
-		if (tmp_range < range)
-		{
-			range = tmp_range;
-			*memory = tmp->val;
-		}
-		tmp = tmp->prev;
-	}	
+	get_minmax_len(stack, s, len);
+	anker = ((s->max + s->min) / 2);
+
+	if (anker - 1 == s->min)
+		*memory = s->min;
+	else
+		*memory = anker;
 }
 
 void	print_args(int  val)

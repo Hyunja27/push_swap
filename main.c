@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:28:56 by spark             #+#    #+#             */
-/*   Updated: 2021/05/18 18:03:38 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/19 16:15:56 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,11 +51,11 @@ int main(int ac, char *av[])
 
     // print_list(basket_a);
 
-    printf("\n//////////////////////\n");
-	print_list(basket_a);
-	printf("\n\n====================\n\n");
-	print_list(basket_b);
-	printf("\\\\\\\\\\\\\\\\\\\\\\final//\n\n\n\n");
+    // printf("\n//////////////////////\n");
+	// print_list(basket_a);
+	// printf("\n\n====================\n\n");
+	// print_list(basket_b);
+	// printf("\\\\\\\\\\\\\\\\\\\\\\final//\n\n\n\n");
 
     
     free_memory(basket_a);

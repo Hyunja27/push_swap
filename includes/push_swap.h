@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
+/*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:36:56 by spark             #+#    #+#             */
-/*   Updated: 2021/05/18 11:52:39 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/19 15:38:43 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void    link_nd(t_nd **nd, char *val, t_nd *head, t_stat *s);
 void	free_memory(t_nd *nd);
 void	init_stat(t_stat *s);
 void    lets_roll(t_nd **a, t_nd **b, t_stat *s);
-void	get_middle(t_nd *stack, long *memory, t_stat *s);
+void	get_middle_len(t_nd *stack, long *memory, t_stat *s, int len);
 void    quick_a_to_b(t_nd **a, t_nd **b, t_stat *s, int len);
 void    quick_b_to_a(t_nd **a, t_nd **b, t_stat *s, int len);
 
