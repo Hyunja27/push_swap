@@ -6,15 +6,34 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 14:34:18 by spark             #+#    #+#             */
-/*   Updated: 2021/05/20 17:57:45 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/20 18:51:57 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    small_aline(t_nd **a, t_nd **b, t_stat *s)
+void    reroll(t_nd **a, t_nd **b, t_stat *s)
 {
-	
+	t_nd *tmp;
+
+	while (is_aline(a, s))
+	{
+		tmp = *a;
+		while (tmp->prev)
+			tmp = tmp->prev;
+		if (tmp->val == s->min)	
+		{
+			if (!is_aline(a, s))
+				break;
+			go_sa(a, b, s);
+		}
+		else
+		{
+			go_ra(a, b, s);
+			if (!is_aline(a, s))
+				break;
+		}
+	}
 }
 
 int		is_aline(t_nd **target, t_stat *s)

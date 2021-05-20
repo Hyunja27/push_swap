@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 14:34:18 by spark             #+#    #+#             */
-/*   Updated: 2021/05/20 18:33:05 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/20 18:45:50 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -143,7 +143,7 @@ void    quick_b_to_a(t_nd **a, t_nd **b, t_stat *s, int len)
 
 void    lets_roll(t_nd **a, t_nd **b, t_stat *s)
 {
-	if (s->a_size > 5)
+	if (s->a_size > 3)
 		quick_a_to_b(a, b, s, s->a_size);
 	else
 		small_aline(a, b, s);
