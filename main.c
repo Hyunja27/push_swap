@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:28:56 by spark             #+#    #+#             */
-/*   Updated: 2021/05/19 16:15:56 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/20 21:21:15 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,5 +60,6 @@ int main(int ac, char *av[])
     
     free_memory(basket_a);
     free_memory(basket_b);
+    // printf("\ncalled = [%ld]\n", info.count);
     return (0);
 }

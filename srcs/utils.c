@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:59:28 by spark             #+#    #+#             */
-/*   Updated: 2021/05/19 17:53:45 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/20 21:28:24 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,15 @@
 void	real_rb(t_nd **a, t_nd **b, t_stat *s)
 {
 	printf("rb\n");
-	go_rb(a, b, s);	
+	go_rb(a, b, s);
+	s->count++;
 }
 
 void	real_ra(t_nd **a, t_nd **b, t_stat *s)
 {
 	printf("ra\n");
-	go_ra(a, b, s);	
+	go_ra(a, b, s);
+	s->count++;
 }
 
 int		is_all_ra(t_nd *target, t_stat *s, int i, int len)
@@ -31,7 +33,7 @@ int		is_all_ra(t_nd *target, t_stat *s, int i, int len)
 	j = i;
 	while (j < len)
 	{
-		if ((target->val > s->a_mid))
+		if ((target->val < s->a_mid))
 			return (1);
 		target = target->prev;
 		j++;
@@ -46,7 +48,7 @@ int		is_all_rb(t_nd *target, t_stat *s, int i, int len)
 	j = i;
 	while (j < len)
 	{
-		if ((target->val <= s->b_mid))
+		if ((target->val >= s->b_mid))
 			return (1);
 		target = target->prev;
 		j++;
@@ -84,8 +86,8 @@ void	get_middle_len(t_nd *stack, long *memory, t_stat *s, int len)
 	get_minmax_len(stack, s, len);
 	anker = ((s->max + s->min) / 2);
 
-	if (anker - 1 == s->min)
-		*memory = s->min;
+	if (s->max - s->min == 1)
+		*memory = s->max;
 	else
 		*memory = anker;
 }

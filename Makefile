@@ -39,8 +39,8 @@ fclean : clean
 	@make -C $(LIB_DIR) fclean
 
 test : $(LIB_DIR)/$(LIBFT)
-	@$(CC) $(CFLAGS) -I$(INC_DIR) -I$(LIB_DIR)/$(INC_DIR) -L ./$(LIB_DIR) -lft $(SRCS)
-	@./a.out
-	@rm a.out
+	@rm ./push_swap_visualizer/push_swap
+	@make re
+	cp push_swap ./push_swap_visualizer
 
 .PHONY : test

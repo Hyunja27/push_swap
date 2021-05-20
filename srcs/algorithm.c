@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
+/*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 14:34:18 by spark             #+#    #+#             */
-/*   Updated: 2021/05/20 18:45:50 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/20 21:44:43 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,14 +31,14 @@ void    quick_a_to_b(t_nd **a, t_nd **b, t_stat *s, int len)
 		roll_need = 0;
 	i = -1;
 	j = -1;
-	if (len == 1 || len == 0)
+	if (len == 1)
 		return ;
 	get_middle_len(*a, &(s->a_mid), s, len);
 	while (++i < len)
 	{
 		if (!(*a)->prev)
 			break;
-		if ((*a)->val <= s->a_mid)
+		if ((*a)->val >= s->a_mid)
 		{
 			if (is_all_ra(*a, s, i, len))
 			{
@@ -53,6 +53,7 @@ void    quick_a_to_b(t_nd **a, t_nd **b, t_stat *s, int len)
 		{
 			printf("pb\n");
 			go_pb(a, b, s);
+			s->count++;
 			count_p++;
 		}
 		
@@ -65,6 +66,7 @@ void    quick_a_to_b(t_nd **a, t_nd **b, t_stat *s, int len)
 	while (roll_need && (++j < count_rr))
 	{
 		printf("rra\n");
+		s->count++;
 		go_rra(a, b, s);
 
 		
@@ -102,7 +104,7 @@ void    quick_b_to_a(t_nd **a, t_nd **b, t_stat *s, int len)
 	get_middle_len(*b, &(s->b_mid), s, len);
 	while (++i < len)
 	{
-		if ((*b)->val > s->b_mid)
+		if ((*b)->val < s->b_mid)
 		{
 			if (is_all_rb(*b, s, i, len))
 			{
@@ -115,6 +117,7 @@ void    quick_b_to_a(t_nd **a, t_nd **b, t_stat *s, int len)
 		{
 			printf("pa\n");
 			go_pa(a, b, s);
+			s->count++;
 			count_p++;
 		}
 
@@ -126,7 +129,10 @@ void    quick_b_to_a(t_nd **a, t_nd **b, t_stat *s, int len)
 	}
 	while (roll_need && (++j < count_rr))
 	{
+		if (is_unaline(b, s))
+			return ;
 		printf("rrb\n");
+		s->count++;
 		go_rrb(a, b, s);
 		
 		// printf("\n//////////////////////\n");
@@ -143,10 +149,10 @@ void    quick_b_to_a(t_nd **a, t_nd **b, t_stat *s, int len)
 
 void    lets_roll(t_nd **a, t_nd **b, t_stat *s)
 {
-	if (s->a_size > 3)
-		quick_a_to_b(a, b, s, s->a_size);
-	else
+	if (s->a_size <= 4)
 		small_aline(a, b, s);
+	else
+		quick_a_to_b(a, b, s, s->a_size);
 }
 		// printf("\n//////////////////////\n");
 		// print_list(*a);
