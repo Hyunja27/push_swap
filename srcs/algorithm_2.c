@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
+/*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 14:34:18 by spark             #+#    #+#             */
-/*   Updated: 2021/05/20 18:51:57 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/20 19:03:39 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,21 +16,23 @@ void    reroll(t_nd **a, t_nd **b, t_stat *s)
 {
 	t_nd *tmp;
 
-	while (is_aline(a, s))
+	while (!is_aline(a, s))
 	{
 		tmp = *a;
 		while (tmp->prev)
 			tmp = tmp->prev;
 		if (tmp->val == s->min)	
 		{
-			if (!is_aline(a, s))
+			if (is_aline(a, s))
 				break;
-			go_sa(a, b, s);
+			go_sa(*a, *b, s);
+			printf("sa\n");
 		}
 		else
 		{
 			go_ra(a, b, s);
-			if (!is_aline(a, s))
+			printf("ra\n");
+			if (is_aline(a, s))
 				break;
 		}
 	}
@@ -54,6 +56,7 @@ int		is_aline(t_nd **target, t_stat *s)
 		tmp = tmp->prev;
 	}
 	return (1);
+	(void)s;
 }
 
 void    small_aline(t_nd **a, t_nd **b, t_stat *s)
