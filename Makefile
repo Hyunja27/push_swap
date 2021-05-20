@@ -18,10 +18,19 @@ SRCS =	main.c\
 		srcs/algorithm.c\
 		srcs/algorithm_2.c\
 
+B_SRCS = make_checker.c\
+		srcs/list_control.c\
+		srcs/basic_action.c\
+		srcs/basic_action_2.c\
+		srcs/basic_action_3.c\
+		srcs/utils.c\
+		srcs/algorithm.c\
+		srcs/algorithm_2.c\
+
 
 all : $(NAME)
 
-$(NAME) : $(LIB_DIR)/$(LIBFT)
+$(NAME) : $(LIB_DIR)/$(LIBFT) bonus
 	@$(CC) $(CFLAGS) -I$(INC_DIR) -I$(LIB_DIR)/$(INC_DIR) \
 	-L ./$(LIB_DIR) -lft -o $(NAME) $(SRCS)
 
@@ -30,8 +39,13 @@ $(LIB_DIR)/$(LIBFT) :
 
 re : fclean all
 
+bonus :
+	@$(CC) $(CFLAGS) -I$(INC_DIR) -I$(LIB_DIR)/$(INC_DIR) \
+	-L ./$(LIB_DIR) -lft -o checker $(B_SRCS)
+
 clean :
 	@rm -rf $(NAME)
+	@rm -rf checker
 	@make -C $(LIB_DIR) clean
 
 fclean : clean
