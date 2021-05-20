@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:36:56 by spark             #+#    #+#             */
-/*   Updated: 2021/05/19 17:53:56 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/20 18:33:44 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,8 @@ void	real_rb(t_nd **a, t_nd **b, t_stat *s);
 void	real_ra(t_nd **a, t_nd **b, t_stat *s);
 int		is_all_ra(t_nd *target, t_stat *s, int i, int len);
 int		is_all_rb(t_nd *target, t_stat *s, int i, int len);
+void    small_aline(t_nd **a, t_nd **b, t_stat *s);
+int		is_aline(t_nd **target, t_stat *s);
 
 
 void    go_sa(t_nd *a, t_nd *b, t_stat *s);

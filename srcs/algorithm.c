@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 14:34:18 by spark             #+#    #+#             */
-/*   Updated: 2021/05/19 17:53:12 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/20 18:33:05 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void    quick_a_to_b(t_nd **a, t_nd **b, t_stat *s, int len)
 	count_rr = 0;
 	count_p = 0;
 	roll_need = 1;
+	if (is_aline(a, s))
+		return ;
 	if ((long)len == s->a_size)
 		roll_need = 0;
 	i = -1;
@@ -76,6 +78,7 @@ void    quick_a_to_b(t_nd **a, t_nd **b, t_stat *s, int len)
 	quick_b_to_a(a, b, s, count_p);
 
 }
+
 
 void    quick_b_to_a(t_nd **a, t_nd **b, t_stat *s, int len)
 {
@@ -140,7 +143,10 @@ void    quick_b_to_a(t_nd **a, t_nd **b, t_stat *s, int len)
 
 void    lets_roll(t_nd **a, t_nd **b, t_stat *s)
 {
-	quick_a_to_b(a, b, s, s->a_size);
+	if (s->a_size > 5)
+		quick_a_to_b(a, b, s, s->a_size);
+	else
+		small_aline(a, b, s);
 }
 		// printf("\n//////////////////////\n");
 		// print_list(*a);
