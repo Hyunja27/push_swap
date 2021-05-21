@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:28:56 by spark             #+#    #+#             */
-/*   Updated: 2021/05/21 21:10:56 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/22 00:50:37 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,13 @@ static void	main_loop(char ***str, char ***av, t_nd **basket_a, t_stat *info)
 		*str = ft_split((*av)[i], ' ');
 		make_list(*str, basket_a, info);
 		if (is_all_num(str))
-		{
-			ft_putstr_fd("Error\n", 1);
-			exit (-1);
-		}
+			error_end();
 		i++;
 		free_matrix(str);
 	}
 }
 
-int			main(int ac, char *av[])
+int	main(int ac, char *av[])
 {
 	char	**str;
 	t_nd	*basket_a;
@@ -42,14 +39,9 @@ int			main(int ac, char *av[])
 	basket_a = 0;
 	basket_b = 0;
 	if (ac == 1)
-	{
-		ft_putstr_fd("Error\n", 2);
-		return (-1);
-	}
+		error_end();
 	else
-	{
 		main_loop(&str, &av, &basket_a, &info);
-	}
 	lets_roll(&basket_a, &basket_b, &info);
 	free_memory(basket_a);
 	free_memory(basket_b);

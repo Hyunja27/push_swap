@@ -11,6 +11,7 @@ SRCS_DIR = ./srcs
 
 SRCS =	main.c\
 		srcs/list_control.c\
+		srcs/list_control_2.c\
 		srcs/basic_action.c\
 		srcs/basic_action_2.c\
 		srcs/basic_action_3.c\
@@ -21,9 +22,9 @@ SRCS =	main.c\
 		srcs/algorithm_2.c\
 		srcs/algorithm_3.c\
 
-
 B_SRCS = make_checker.c\
 		srcs/list_control.c\
+		srcs/list_control_2.c\
 		srcs/basic_action.c\
 		srcs/basic_action_2.c\
 		srcs/basic_action_3.c\

@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:59:28 by spark             #+#    #+#             */
-/*   Updated: 2021/05/21 20:50:49 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/22 00:48:52 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	free_matrix(char ***matrix)
 	free((*matrix));
 }
 
-int		matrix_line_num(char **matrix)
+int	matrix_line_num(char **matrix)
 {
 	int		i;
 

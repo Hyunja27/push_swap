@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:59:28 by spark             #+#    #+#             */
-/*   Updated: 2021/05/21 22:11:34 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/22 00:55:13 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ int	is_all_num(char ***str)
 		{
 			if (j == 0)
 			{
-				if (!ft_isdigit((*str)[i][j]) || (*str)[i][j] != '-')
-					break ;
+				if (!ft_isdigit((*str)[i][j]) && (*str)[i][j] != '-')
+					return (1);
 			}
 			else
 			{
@@ -77,4 +77,10 @@ void	init_stat(t_stat *s)
 	s->count = 0;
 	s->max = 0;
 	s->min = 0;
+}
+
+void	error_end(void)
+{
+	ft_putstr_fd("Error", 2);
+	exit(1);
 }
