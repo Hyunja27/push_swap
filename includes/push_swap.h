@@ -3,41 +3,38 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
+/*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:36:56 by spark             #+#    #+#             */
-/*   Updated: 2021/05/21 19:54:35 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/21 20:03:06 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
+# include <stdlib.h>
+# include "libft.h"
 
-#include <stdio.h>
-
-#include <stdlib.h>
-#include "libft.h"
-
-typedef struct  s_nd
+typedef struct s_nd
 {
-    long			val;
-    struct s_nd		*next;
-    struct s_nd		*prev;
-}               t_nd;
+	long			val;
+	struct s_nd		*next;
+	struct s_nd		*prev;
+}	t_nd;
 
-typedef struct  s_stat
+typedef struct s_stat
 {
-    long	max;
-    long	min;
-    long	a_size;
-    long	b_size;
-    long	a_mid;
-    long	b_mid;    
-    long	count;
-}               t_stat;
+	long	max;
+	long	min;
+	long	a_size;
+	long	b_size;
+	long	a_mid;
+	long	b_mid;
+	long	count;
+}	t_stat;
 
 void	make_list(char **str, t_nd **baskt_a, t_stat *s);
-void	print_args(int  val);
+void	print_args(int val);
 void	print_list(t_nd *com);
 void	free_matrix(char ***matrix);
 int		matrix_line_num(char **matrix);
@@ -59,11 +56,9 @@ int		is_all_rb(t_nd *target, t_stat *s, int i, int len);
 void	small_aline(t_nd **a, t_nd **b, t_stat *s);
 int		is_aline(t_nd **target, t_stat *s);
 int		is_unaline(t_nd **target, t_stat *s);
-void    reroll(t_nd **a, t_nd **b, t_stat *s);
+void	reroll(t_nd **a, t_nd **b, t_stat *s);
 void	get_minmax_len(t_nd *stack, t_stat *s, int len);
-void    reroll_3(t_nd **a, t_nd **b, t_stat *s);
-
-
+void	reroll_3(t_nd **a, t_nd **b, t_stat *s);
 void	go_sa(t_nd *a, t_nd *b, t_stat *s);
 void	go_sb(t_nd *a, t_nd *b, t_stat *s);
 void	go_ss(t_nd *a, t_nd *b, t_stat *s);
