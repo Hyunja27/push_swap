@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 21:52:06 by spark             #+#    #+#             */
-/*   Updated: 2021/05/21 21:17:00 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/22 01:08:44 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,10 +59,7 @@ static void	main_loop(char ***str, char ***av, t_nd **basket_a, t_stat *info)
 		*str = ft_split((*av)[i], ' ');
 		make_list(*str, basket_a, info);
 		if (is_all_num(str))
-		{
-			ft_putstr_fd("Error\n", 1);
-			exit (-1);
-		}
+			error_end();
 		i++;
 		free_matrix(str);
 	}
@@ -73,16 +70,13 @@ static int	main_loop_2(char *buf, t_nd **a, t_nd **b, t_stat *info)
 	int	i;
 
 	i = 0;
-	if (!i)
+	while (0 < get_next_line(0, &buf))
 	{
-		while (0 < get_next_line(0, &buf))
-		{
-			if (!ft_strcmp(buf, "\n") || !ft_strcmp(buf, ""))
-				break ;
-			check_str(a, b, info, buf);
-			if (info->a_size == 0)
-				break ;
-		}
+		if (!ft_strcmp(buf, "\n") || !ft_strcmp(buf, ""))
+			break ;
+		check_str(a, b, info, buf);
+		if (info->a_size == 0)
+			break ;
 	}
 	i = is_aline(a, info);
 	if (i == 1)
@@ -92,7 +86,7 @@ static int	main_loop_2(char *buf, t_nd **a, t_nd **b, t_stat *info)
 	return (1);
 }
 
-int		main(int ac, char *av[])
+int	main(int ac, char *av[])
 {
 	char	*buf;
 	char	**str;

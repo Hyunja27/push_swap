@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 14:34:18 by spark             #+#    #+#             */
-/*   Updated: 2021/05/21 22:20:43 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/22 01:47:23 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,7 +71,7 @@ void	quick_a_to_b(t_nd **a, t_nd **b, t_stat *s, int len)
 		return ;
 	if ((long)len == s->a_size)
 		flag[6] = 0;
-	if (len == 1 || len == 0)
+	if (len == 1 | len == 0)
 		return ;
 	get_middle_len(*a, &(s->a_mid), s, len);
 	a_to_b_loop(a, b, s, &flag);
@@ -114,4 +114,9 @@ void	lets_roll(t_nd **a, t_nd **b, t_stat *s)
 		small_aline(a, b, s);
 	else
 		quick_a_to_b(a, b, s, s->a_size);
+	if (s->b_size > 0)
+	{
+		ft_putstr_fd("pa\n", 1);
+		go_pa(a, b, s);
+	}
 }
