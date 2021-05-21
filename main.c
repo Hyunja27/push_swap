@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:28:56 by spark             #+#    #+#             */
-/*   Updated: 2021/05/21 16:08:18 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/21 19:52:49 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	main_loop(char ***str, char ***av, t_nd **basket_a, t_stat	*info)
+static void	main_loop(char ***str, char ***av, t_nd **basket_a, t_stat *info)
 {
 	int	i;
 
@@ -26,7 +26,7 @@ static void	main_loop(char ***str, char ***av, t_nd **basket_a, t_stat	*info)
 	}
 }
 
-int	main(int ac, char *av[])
+int			main(int ac, char *av[])
 {
 	char	**str;
 	t_nd	*basket_a;

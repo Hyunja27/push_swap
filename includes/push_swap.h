@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   push_swap.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:36:56 by spark             #+#    #+#             */
-/*   Updated: 2021/05/20 19:48:54 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/21 19:54:35 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,20 +20,20 @@
 
 typedef struct  s_nd
 {
-	long            val;
-	struct s_nd   *next;
-	struct s_nd   *prev;
+    long			val;
+    struct s_nd		*next;
+    struct s_nd		*prev;
 }               t_nd;
 
 typedef struct  s_stat
 {
-	long	max;
-	long	min;
-	long	a_size;
-	long	b_size;
-	long	a_mid;
-	long	b_mid;    
-	long	count;
+    long	max;
+    long	min;
+    long	a_size;
+    long	b_size;
+    long	a_mid;
+    long	b_mid;    
+    long	count;
 }               t_stat;
 
 void	make_list(char **str, t_nd **baskt_a, t_stat *s);
