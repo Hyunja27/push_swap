@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
+/*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:28:56 by spark             #+#    #+#             */
-/*   Updated: 2021/05/21 19:52:49 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/21 21:10:56 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,11 @@ static void	main_loop(char ***str, char ***av, t_nd **basket_a, t_stat *info)
 	{
 		*str = ft_split((*av)[i], ' ');
 		make_list(*str, basket_a, info);
+		if (is_all_num(str))
+		{
+			ft_putstr_fd("Error\n", 1);
+			exit (-1);
+		}
 		i++;
 		free_matrix(str);
 	}
@@ -42,7 +47,9 @@ int			main(int ac, char *av[])
 		return (-1);
 	}
 	else
+	{
 		main_loop(&str, &av, &basket_a, &info);
+	}
 	lets_roll(&basket_a, &basket_b, &info);
 	free_memory(basket_a);
 	free_memory(basket_b);

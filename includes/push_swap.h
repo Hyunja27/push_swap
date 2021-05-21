@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:36:56 by spark             #+#    #+#             */
-/*   Updated: 2021/05/21 20:03:06 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/21 21:43:29 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,6 +59,8 @@ int		is_unaline(t_nd **target, t_stat *s);
 void	reroll(t_nd **a, t_nd **b, t_stat *s);
 void	get_minmax_len(t_nd *stack, t_stat *s, int len);
 void	reroll_3(t_nd **a, t_nd **b, t_stat *s);
+int		is_all_num(char ***str);
+void	flag_init(int (*flag)[8], int len);
 void	go_sa(t_nd *a, t_nd *b, t_stat *s);
 void	go_sb(t_nd *a, t_nd *b, t_stat *s);
 void	go_ss(t_nd *a, t_nd *b, t_stat *s);

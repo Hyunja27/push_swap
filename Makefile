@@ -15,8 +15,12 @@ SRCS =	main.c\
 		srcs/basic_action_2.c\
 		srcs/basic_action_3.c\
 		srcs/utils.c\
+		srcs/utils_2.c\
+		srcs/utils_3.c\
 		srcs/algorithm.c\
 		srcs/algorithm_2.c\
+		srcs/algorithm_3.c\
+
 
 B_SRCS = make_checker.c\
 		srcs/list_control.c\
@@ -24,8 +28,11 @@ B_SRCS = make_checker.c\
 		srcs/basic_action_2.c\
 		srcs/basic_action_3.c\
 		srcs/utils.c\
+		srcs/utils_2.c\
+		srcs/utils_3.c\
 		srcs/algorithm.c\
 		srcs/algorithm_2.c\
+		srcs/algorithm_3.c\
 
 
 all : $(NAME)

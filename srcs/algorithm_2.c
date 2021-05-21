@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 14:34:18 by spark             #+#    #+#             */
-/*   Updated: 2021/05/21 20:26:07 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/21 21:21:30 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,14 @@ void	reroll(t_nd **a, t_nd **b, t_stat *s)
 		if ((*a)->val == s->min)
 		{
 			go_pb(a, b, s);
-			printf("pb\n");
+			ft_putstr_fd("pb\n", 1);
 			s->count++;
 			get_minmax_len(*a, s, s->a_size);
 		}
 		else
 		{
 			go_ra(a, b, s);
-			printf("ra\n");
+			ft_putstr_fd("ra\n", 1);
 			s->count++;
 		}
 	}
@@ -35,7 +35,7 @@ void	reroll(t_nd **a, t_nd **b, t_stat *s)
 	while (s->b_size > 0)
 	{
 		go_pa(a, b, s);
-		printf("pa\n");
+		ft_putstr_fd("pa\n", 1);
 		s->count++;
 	}
 }
@@ -46,7 +46,7 @@ void	reroll_2(t_nd **a, t_nd **b, t_stat *s)
 	if (!is_aline(a, s))
 	{
 		go_sa(*a, *b, s);
-		printf("sa\n");
+		ft_putstr_fd("sa\n", 1);
 		s->count++;
 	}
 }
@@ -66,63 +66,18 @@ void	reroll_3(t_nd **a, t_nd **b, t_stat *s)
 			if (is_aline(a, s))
 				break ;
 			go_sa(*a, *b, s);
-			printf("sa\n");
+			ft_putstr_fd("sa\n", 1);
 			s->count++;
 		}
 		else
 		{
 			go_ra(a, b, s);
-			printf("ra\n");
+			ft_putstr_fd("ra\n", 1);
 			s->count++;
 			if (is_aline(a, s))
 				break ;
 		}
 	}
-}
-
-int	is_unaline(t_nd **target, t_stat *s)
-{
-	t_nd	*tmp;
-	long	tmp_val;
-
-	if (!target)
-		exit(-1);
-	tmp = *target;
-	tmp_val = (*target)->val;
-	tmp = tmp->prev;
-	while (tmp)
-	{
-		if (tmp->val >= tmp_val)
-			return (0);
-		tmp_val = tmp->val;
-		tmp = tmp->prev;
-	}
-	return (1);
-	(void)s;
-}
-
-int	is_aline(t_nd **target, t_stat *s)
-{
-	t_nd	*tmp;
-	long	tmp_val;
-
-	if (!(*target))
-		return (0);
-	tmp = *target;
-	tmp_val = (*target)->val;
-	tmp = tmp->prev;
-	while (tmp)
-	{
-		if (tmp->val <= tmp_val)
-			return (0);
-		tmp_val = tmp->val;
-		tmp = tmp->prev;
-	}
-	if (s->b_size == 0)
-		return (1);
-	else
-		return (0);
-	(void)s;
 }
 
 void	small_aline(t_nd **a, t_nd **b, t_stat *s)
