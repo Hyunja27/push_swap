@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:59:28 by spark             #+#    #+#             */
-/*   Updated: 2021/05/20 21:28:24 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/21 17:38:34 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,7 +85,6 @@ void	get_middle_len(t_nd *stack, long *memory, t_stat *s, int len)
 	tmp = stack;
 	get_minmax_len(stack, s, len);
 	anker = ((s->max + s->min) / 2);
-
 	if (s->max - s->min == 1)
 		*memory = s->max;
 	else

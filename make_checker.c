@@ -6,29 +6,15 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 21:52:06 by spark             #+#    #+#             */
-/*   Updated: 2021/05/21 13:05:48 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/21 17:55:44 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    check_str(t_nd **a, t_nd **b, t_stat *s, char *str)
+void	check_str_2(t_nd **a, t_nd **b, t_stat *s, char *str)
 {
-	if (!ft_strcmp("sa", str))
-		go_sa(*a, *b, s);
-	else if (!ft_strcmp("sb", str))
-		go_sb(*a, *b, s);
-	else if (!ft_strcmp("ss", str))
-        go_ss(*a, *b, s); 
-	else if (!ft_strcmp("pa", str))
-        go_pa(a, b, s); 
-	else if (!ft_strcmp("pb", str))
-		go_pb(a, b, s);
-	else if (!ft_strcmp("ra", str))
-		go_ra(a, b, s);
-	else if (!ft_strcmp("rb", str))
-		go_rb(a, b, s);
-	else if (!ft_strcmp("rr", str))
+	if (!ft_strcmp("rr", str))
 		go_rr(a, b, s);
 	else if (!ft_strcmp("rra", str))
 		go_rra(a, b, s);
@@ -36,55 +22,94 @@ void    check_str(t_nd **a, t_nd **b, t_stat *s, char *str)
 		go_rrb(a, b, s);
 	else if (!ft_strcmp("rrr", str))
 		go_rrr(a, b, s);
+	else
+	{
+		ft_putstr_fd("KO", 1);
+		exit(-1);
+	}
 }
 
-int		main(int ac, char *av[])
+void	check_str(t_nd **a, t_nd **b, t_stat *s, char *str)
 {
-	char    *buf;
-	char    **str;
-	int     i;
-	t_nd    *basket_a;
-	t_nd    *basket_b;
-	t_stat  info;
+	if (!ft_strcmp("sa", str))
+		go_sa(*a, *b, s);
+	else if (!ft_strcmp("sb", str))
+		go_sb(*a, *b, s);
+	else if (!ft_strcmp("ss", str))
+		go_ss(*a, *b, s);
+	else if (!ft_strcmp("pa", str))
+		go_pa(a, b, s);
+	else if (!ft_strcmp("pb", str))
+		go_pb(a, b, s);
+	else if (!ft_strcmp("ra", str))
+		go_ra(a, b, s);
+	else if (!ft_strcmp("rb", str))
+		go_rb(a, b, s);
+	else
+		check_str_2(a, b, s, str);
+}
+
+static void	main_loop(char ***str, char ***av, t_nd **basket_a, t_stat *info)
+{
+	int	i;
 
 	i = 1;
+	while ((*av)[i])
+	{
+		*str = ft_split((*av)[i], ' ');
+		make_list(*str, basket_a, info);
+		i++;
+		free_matrix(str);
+	}
+}
+
+static int	main_loop_2(char *buf, t_nd **a, t_nd **b, t_stat *info)
+{
+	int	i;
+
+	i = 0;
+	i = is_aline(a, info);
+	if (!i)
+	{
+		while (0 < get_next_line(0, &buf))
+		{
+			if (!ft_strcmp(buf, "\n") || !ft_strcmp(buf, ""))
+				break ;
+			check_str(a, b, info, buf);
+			i = is_aline(a, info);
+			if (i || (info->a_size == 0))
+				break ;
+		}
+	}
+	if (i == 1)
+		ft_putstr_fd("OK\n", 1);
+	else
+		ft_putstr_fd("KO\n", 1);
+	return (1);
+}
+
+int	main(int ac, char *av[])
+{
+	char	*buf;
+	char	**str;
+	t_nd	*basket_a;
+	t_nd	*basket_b;
+	t_stat	info;
+
 	init_stat(&info);
+	buf = ft_calloc(sizeof(char), 5000);
 	basket_a = 0;
 	basket_b = 0;
-	buf = (char*)malloc(sizeof(char) * 5000);
-	ft_memset(buf, 0, 5000);
 	if (ac == 1)
 	{
 		ft_putstr_fd("Error\n", 2);
 		return (-1);
 	}
 	else
-	{
-		while (av[i])
-		{
-			str = ft_split(av[i], ' ');
-			make_list(str, &basket_a, &info);
-			i++;
-			free_matrix(&str);
-		}
-	}
-	while (0 < get_next_line(0, &buf))
-	{
-		if (!ft_strcmp(buf, "\n") || !ft_strcmp(buf, ""))
-		{
-			if (!i)
-				ft_putstr_fd("KO", 1);
-			break;
-		}
-		check_str(&basket_a, &basket_b, &info, buf);
-		i = is_aline(&basket_a, &info);
-		if (i)
-			break;
-	}
-	if (i)
-		ft_putstr_fd("OK", 1);
-	else 
-		ft_putstr_fd("KO", 1);
-	free(buf);
+		main_loop(&str, &av, &basket_a, &info);
+	while (!main_loop_2(buf, &basket_a, &basket_b, &info))
+		;
+	free_memory(basket_a);
+	free_memory(basket_b);
 	return (0);
 }

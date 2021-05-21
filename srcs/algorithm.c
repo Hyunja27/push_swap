@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 14:34:18 by spark             #+#    #+#             */
-/*   Updated: 2021/05/20 21:44:43 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/21 17:39:59 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void    quick_a_to_b(t_nd **a, t_nd **b, t_stat *s, int len)
 		roll_need = 0;
 	i = -1;
 	j = -1;
-	if (len == 1)
+	if (len == 1 || len == 0)
 		return ;
 	get_middle_len(*a, &(s->a_mid), s, len);
 	while (++i < len)
@@ -149,7 +149,7 @@ void    quick_b_to_a(t_nd **a, t_nd **b, t_stat *s, int len)
 
 void    lets_roll(t_nd **a, t_nd **b, t_stat *s)
 {
-	if (s->a_size <= 4)
+	if (s->a_size <= 3)
 		small_aline(a, b, s);
 	else
 		quick_a_to_b(a, b, s, s->a_size);

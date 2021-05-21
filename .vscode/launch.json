@@ -8,12 +8,12 @@
 			"name": "gcc - 활성 파일 빌드 및 디버그",
 			"type": "cppdbg",
 			"request": "launch",
-			"program": "${workspaceFolder}/checker",
-			"args": ["3 1 2"],
+			"program": "${workspaceFolder}/push_swap",
+			"args": ["12 3 4 5 9"],
 			"stopAtEntry": true,
 			"cwd": "${workspaceFolder}",
 			"environment": [],
-			"externalConsole": true,
+			"externalConsole": false,
 			"MIMode": "lldb",
 			"preLaunchTask": "build"
 		}

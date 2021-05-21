@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 14:34:18 by spark             #+#    #+#             */
-/*   Updated: 2021/05/21 12:28:58 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/21 17:54:50 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,17 @@ void    reroll(t_nd **a, t_nd **b, t_stat *s)
 	{
 		go_pa(a, b, s);
 		printf("pa\n");
+		s->count++;
+	}
+}
+
+void    reroll_2(t_nd **a, t_nd **b, t_stat *s)
+{
+	get_minmax_len(*a, s, 2);
+	if (!is_aline(a, s))
+	{
+		go_sa(*a, *b, s);
+		printf("sa\n");
 		s->count++;
 	}
 }
@@ -96,8 +107,8 @@ int		is_aline(t_nd **target, t_stat *s)
 	t_nd *tmp;
 	long tmp_val;
 
-	if (!target)
-		exit(-1);
+	if (!(*target))
+		return (0);
 	tmp = *target;
 	tmp_val = (*target)->val;
 	tmp = tmp->prev;
@@ -108,7 +119,10 @@ int		is_aline(t_nd **target, t_stat *s)
 		tmp_val = tmp->val;
 		tmp = tmp->prev;
 	}
-	return (1);
+	if (s->b_size == 0)
+		return (1);
+	else
+		return (0);
 	(void)s;
 }
 
@@ -118,12 +132,8 @@ void    small_aline(t_nd **a, t_nd **b, t_stat *s)
 		exit (1);
 	else if (s->a_size == 3)
 		reroll_3(a, b, s);
-	else
+	else if (s->a_size == 2)
+		reroll_2(a, b, s);
+	else 
 		reroll(a, b, s);
 }
-		// printf("\n//////////////////////\n");
-		// print_list(*a);
-		// printf("\n\n====================\n\n");
-		// print_list(*b);
-		// printf("\\\\\\\\\\\\\\\\\\\\\\anker:[%ld],len:[%d] by a to b//\n\n\n\n",s->a_mid,len);
-		// sleep(2);
