@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 14:34:18 by spark             #+#    #+#             */
-/*   Updated: 2021/05/20 21:14:04 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/21 12:28:58 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ void    reroll(t_nd **a, t_nd **b, t_stat *s)
 	get_minmax_len(*a, s, s->a_size);
 	while (s->a_size > 3)
 	{
-		if ((*a)->val == s->max)
+		if ((*a)->val == s->min)
 		{
 			go_pb(a, b, s);
 			printf("pb\n");
@@ -51,7 +51,7 @@ void    reroll_3(t_nd **a, t_nd **b, t_stat *s)
 		tmp = *a;
 		while (tmp->prev)
 			tmp = tmp->prev;
-		if (tmp->val == s->min)	
+		if (tmp->val == s->max)	
 		{
 			if (is_aline(a, s))
 				break;
