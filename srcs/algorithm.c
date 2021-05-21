@@ -6,20 +6,20 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 14:34:18 by spark             #+#    #+#             */
-/*   Updated: 2021/05/21 17:39:59 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/21 20:16:12 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    quick_a_to_b(t_nd **a, t_nd **b, t_stat *s, int len)
+void	quick_a_to_b(t_nd **a, t_nd **b, t_stat *s, int len)
 {
-	int     count_r;
-	int     count_rr;
-	int     count_p;
-	int     i;
-	int     j;
-	int		roll_need;
+	int	count_r;
+	int	count_rr;
+	int	count_p;
+	int	i;
+	int	j;
+	int	roll_need;
 
 	count_r = 0;
 	count_rr = 0;
@@ -37,7 +37,7 @@ void    quick_a_to_b(t_nd **a, t_nd **b, t_stat *s, int len)
 	while (++i < len)
 	{
 		if (!(*a)->prev)
-			break;
+			break ;
 		if ((*a)->val >= s->a_mid)
 		{
 			if (is_all_ra(*a, s, i, len))
@@ -45,8 +45,6 @@ void    quick_a_to_b(t_nd **a, t_nd **b, t_stat *s, int len)
 				real_ra(a, b, s);
 				count_rr++;
 			}
-			// printf("ra\n");
-			// go_ra(a, b, s);
 			count_r++;
 		}
 		else
@@ -56,39 +54,25 @@ void    quick_a_to_b(t_nd **a, t_nd **b, t_stat *s, int len)
 			s->count++;
 			count_p++;
 		}
-		
-		// printf("\n//////////////////////\n");
-		// print_list(*a);
-		// printf("\n\n====================\n\n");
-		// print_list(*b);
-		// printf("\\\\\\\\\\\\\\\\\\\\\\anker:[%ld],len:[%d] by a to b//\n\n\n\n",s->a_mid,len);
 	}
 	while (roll_need && (++j < count_rr))
 	{
 		printf("rra\n");
 		s->count++;
 		go_rra(a, b, s);
-
-		
-		// printf("\n//////////////////////\n");
-		// print_list(*a);
-		// printf("\n\n====================\n\n");
-		// print_list(*b);
-		// printf("\\\\\\\\\\\\\\\\\\\\\\roll by a to b//\n\n\n\n");
 	}
 	quick_a_to_b(a, b, s, count_r);
 	quick_b_to_a(a, b, s, count_p);
-
 }
 
 
-void    quick_b_to_a(t_nd **a, t_nd **b, t_stat *s, int len)
+void	quick_b_to_a(t_nd **a, t_nd **b, t_stat *s, int len)
 {
-	int     count_r;
-	int     count_rr;
-	int     count_p;
-	int     i;
-	int     j;
+	int		count_r;
+	int		count_rr;
+	int		count_p;
+	int		i;
+	int		j;
 	int		roll_need;
 
 	count_r = 0;
@@ -120,12 +104,6 @@ void    quick_b_to_a(t_nd **a, t_nd **b, t_stat *s, int len)
 			s->count++;
 			count_p++;
 		}
-
-		// printf("\n//////////////////////\n");
-		// print_list(*a);
-		// printf("\n\n====================\n\n");
-		// print_list(*b);
-		// printf("\\\\\\\\\\\\\\\\\\\\\\anker:[%ld],len:[%d] by b to a//\n\n\n\n",s->b_mid,len);
 	}
 	while (roll_need && (++j < count_rr))
 	{
@@ -134,13 +112,6 @@ void    quick_b_to_a(t_nd **a, t_nd **b, t_stat *s, int len)
 		printf("rrb\n");
 		s->count++;
 		go_rrb(a, b, s);
-		
-		// printf("\n//////////////////////\n");
-		// print_list(*a);
-		// printf("\n\n====================\n\n");
-		// print_list(*b);
-		// printf("\\\\\\\\\\\\\\\\\\\\\\roll by b to a//\n\n\n\n");
-	
 	}
 	quick_a_to_b(a, b, s, count_p);
 	quick_b_to_a(a, b, s, count_r);
@@ -154,9 +125,3 @@ void    lets_roll(t_nd **a, t_nd **b, t_stat *s)
 	else
 		quick_a_to_b(a, b, s, s->a_size);
 }
-		// printf("\n//////////////////////\n");
-		// print_list(*a);
-		// printf("\n\n====================\n\n");
-		// print_list(*b);
-		// printf("\\\\\\\\\\\\\\\\\\\\\\anker:[%ld],len:[%d] by a to b//\n\n\n\n",s->a_mid,len);
-		// sleep(2);

@@ -6,7 +6,7 @@
 /*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 14:34:18 by spark             #+#    #+#             */
-/*   Updated: 2021/05/21 20:05:02 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/21 20:26:07 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,10 +101,10 @@ int	is_unaline(t_nd **target, t_stat *s)
 	(void)s;
 }
 
-int		is_aline(t_nd **target, t_stat *s)
+int	is_aline(t_nd **target, t_stat *s)
 {
-	t_nd *tmp;
-	long tmp_val;
+	t_nd	*tmp;
+	long	tmp_val;
 
 	if (!(*target))
 		return (0);
@@ -125,7 +125,7 @@ int		is_aline(t_nd **target, t_stat *s)
 	(void)s;
 }
 
-void    small_aline(t_nd **a, t_nd **b, t_stat *s)
+void	small_aline(t_nd **a, t_nd **b, t_stat *s)
 {
 	if (is_aline(a, s))
 		exit (1);
@@ -133,6 +133,6 @@ void    small_aline(t_nd **a, t_nd **b, t_stat *s)
 		reroll_3(a, b, s);
 	else if (s->a_size == 2)
 		reroll_2(a, b, s);
-	else 
+	else
 		reroll(a, b, s);
 }
