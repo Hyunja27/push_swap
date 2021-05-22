@@ -3,16 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   make_checker.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/20 21:52:06 by spark             #+#    #+#             */
-/*   Updated: 2021/05/22 01:08:44 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/22 19:55:54 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	check_str_2(t_nd **a, t_nd **b, t_stat *s, char *str)
+void		check_str_2(t_nd **a, t_nd **b, t_stat *s, char *str)
 {
 	if (!ft_strcmp("rr", str))
 		go_rr(a, b, s);
@@ -29,7 +29,7 @@ void	check_str_2(t_nd **a, t_nd **b, t_stat *s, char *str)
 	}
 }
 
-void	check_str(t_nd **a, t_nd **b, t_stat *s, char *str)
+void		check_str(t_nd **a, t_nd **b, t_stat *s, char *str)
 {
 	if (!ft_strcmp("sa", str))
 		go_sa(*a, *b, s);
@@ -86,7 +86,7 @@ static int	main_loop_2(char *buf, t_nd **a, t_nd **b, t_stat *info)
 	return (1);
 }
 
-int	main(int ac, char *av[])
+int			main(int ac, char *av[])
 {
 	char	*buf;
 	char	**str;

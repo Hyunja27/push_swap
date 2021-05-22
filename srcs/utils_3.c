@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils_3.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:59:28 by spark             #+#    #+#             */
-/*   Updated: 2021/05/22 00:55:13 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/22 19:57:24 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ void	flag_init(int (*flag)[8], int len)
 	(*flag)[7] = len;
 }
 
-int	is_all_num(char ***str)
+int		is_all_num(char ***str)
 {
 	int	i;
 	int	j;

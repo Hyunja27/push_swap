@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:59:28 by spark             #+#    #+#             */
-/*   Updated: 2021/05/21 22:06:07 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/22 19:57:48 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	real_ra(t_nd **a, t_nd **b, t_stat *s)
 	s->count++;
 }
 
-int	is_all_ra(t_nd *target, t_stat *s, int i, int len)
+int		is_all_ra(t_nd *target, t_stat *s, int i, int len)
 {
 	int	j;
 
@@ -41,7 +41,7 @@ int	is_all_ra(t_nd *target, t_stat *s, int i, int len)
 	return (0);
 }
 
-int	is_all_rb(t_nd *target, t_stat *s, int i, int len)
+int		is_all_rb(t_nd *target, t_stat *s, int i, int len)
 {
 	int	j;
 

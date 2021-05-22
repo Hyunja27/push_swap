@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   algorithm_2.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/17 14:34:18 by spark             #+#    #+#             */
-/*   Updated: 2021/05/21 21:21:30 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/22 19:57:08 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,7 @@ void	reroll_3(t_nd **a, t_nd **b, t_stat *s)
 void	small_aline(t_nd **a, t_nd **b, t_stat *s)
 {
 	if (is_aline(a, s))
-		exit (1);
+		exit(1);
 	else if (s->a_size == 3)
 		reroll_3(a, b, s);
 	else if (s->a_size == 2)

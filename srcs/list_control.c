@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   list_control.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
+/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:59:28 by spark             #+#    #+#             */
-/*   Updated: 2021/05/22 00:48:39 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/22 19:56:47 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	link_nd_int(t_nd **nd, long val, t_nd *head, t_stat *s)
 	tmp = head;
 	tmp_nd = malloc(sizeof(t_nd) * 1);
 	if (!tmp_nd)
-		exit (1);
+		exit(1);
 	tmp_nd->val = val;
 	while (tmp)
 	{
@@ -47,7 +47,7 @@ void	link_nd(t_nd **nd, char *val, t_nd *head, t_stat *s)
 	tmp = head;
 	tmp_nd = malloc(sizeof(t_nd) * 1);
 	if (!tmp_nd)
-		exit (1);
+		exit(1);
 	tmp_nd->val = ft_atol(val);
 	while (tmp)
 	{
