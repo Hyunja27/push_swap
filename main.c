@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: spark <spark@student.42.fr>                +#+  +:+       +#+        */
+/*   By: spark <spark@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/05/16 16:28:56 by spark             #+#    #+#             */
-/*   Updated: 2021/05/22 19:54:38 by spark            ###   ########.fr       */
+/*   Updated: 2021/05/22 20:07:39 by spark            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,8 @@ int				main(int ac, char *av[])
 	if (ac == 1)
 		error_end();
 	else
-		main_loop(&str, &av, &basket_a, &info);
+		main_loop(&str, &av, &basket_a, &info)
+		;
 	lets_roll(&basket_a, &basket_b, &info);
 	free_memory(basket_a);
 	free_memory(basket_b);
